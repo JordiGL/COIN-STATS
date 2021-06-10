@@ -1,5 +1,4 @@
 {
-  "homepage": "https://jordigl.github.io/Coin-Stats",
   "name": "react-http",
   "version": "0.1.0",
   "private": true,
@@ -11,15 +10,12 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-    "gh-pages": "^3.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^1.1.5",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,6 +30,7 @@
   "browserslist": {
     "production": [
       ">0.2%",
+      "not dead",
       "not op_mini all"
     ],
     "development": [
