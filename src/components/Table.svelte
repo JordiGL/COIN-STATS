@@ -11,6 +11,10 @@
   let ordrePerpercentatge = false;
   let posts = [];
   let response;
+  let percentatge = "Percentatge";
+  let desktop = 600;
+  let limitPercentatge = 0;
+  let lastPriceSubstring = 11;
 
   //Subscripció a l'store.
   const unsubscribe = coinStore.subscribe((value) => {
@@ -101,31 +105,36 @@
   <thead>
     <tr>
       <th on:click={sort("symbol")}>Nom</th>
-      <th
-        class="desktop"
-        on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
-      >
-        Percentatge
-      </th>
-      <th
-        class="mobile"
-        on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
-      >
-        %
+      <th on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}>
+        {#if window.screen.width < desktop}
+          {(percentatge = "24h %")}
+        {:else}
+          {percentatge}
+        {/if}
       </th>
       <th on:click={sort("lastPrice")}>Valor</th>
     </tr>
   </thead>
   <tbody>
     {#each coins as row}
-      <tr class={row.priceChangePercent >= 0 ? "majorHover" : "menorHover"}>
-        <td class="desktop">{row.symbol}</td>
-        <td class="mobile">{row.symbol}</td>
-        <td class={row.priceChangePercent >= 0 ? "major" : "menor"}>
+      <tr
+        class={row.priceChangePercent >= limitPercentatge
+          ? "majorHover"
+          : "menorHover"}
+      >
+        <td>{row.symbol}</td>
+        <td
+          class={row.priceChangePercent >= limitPercentatge ? "major" : "menor"}
+        >
           {parseFloat(row.priceChangePercent).toFixed(2)}
         </td>
-        <td class="desktop">{row.lastPrice}</td>
-        <td class="mobile">{row.lastPrice.substring(0, 11)}</td>
+        <td>
+          {#if window.screen.width < desktop}
+            {row.lastPrice.substring(0, lastPriceSubstring)}
+          {:else}
+            {row.lastPrice}
+          {/if}
+        </td>
       </tr>
     {/each}
   </tbody>
@@ -134,9 +143,24 @@
 <style>
   /* mobile */
   @media only screen and (max-width: 600px) {
+    .title {
+      float: left;
+      height: 44px;
+      font-size: xx-large;
+      margin-left: 2px;
+      padding: 13px;
+    }
+
+    .cercar {
+      float: right;
+      padding: 15px;
+      margin-right: 2px;
+    }
+
     .cercador {
       width: 100px;
     }
+
     table th {
       text-align: left;
       background-color: #424242;
@@ -150,30 +174,23 @@
       font-size: 14px;
       padding: 15px;
       text-align: left;
-    }
-
-    .desktop {
-      display: none;
-    }
-
-    .mobile {
-      padding: 16px;
-
-      display: block;
-    }
-
-    .menor {
-      color: red;
-    }
-
-    .major {
-      color: green;
     }
   }
   /* desktop */
   @media only screen and (min-width: 600px) {
     .cercador {
-      width: 120px;
+      width: 200px;
+    }
+    .title {
+      float: left;
+      height: 44px;
+      font-size: xx-large;
+      padding: 4px;
+    }
+
+    .cercar {
+      float: right;
+      padding: 10px;
     }
 
     table th {
@@ -188,39 +205,11 @@
       padding: 15px;
       text-align: center;
     }
-
-    .desktop {
-      display: block;
-    }
-
-    .mobile {
-      display: none;
-    }
-
-    .menor {
-      color: red;
-    }
-
-    .major {
-      color: green;
-    }
   }
 
+  /* general */
   .container {
     position: relative;
-  }
-  .title {
-    float: left;
-    height: 44px;
-    font-size: xx-large;
-    margin-left: 10px;
-    padding: 2px;
-  }
-
-  .cercar {
-    float: right;
-    padding: 6px;
-    margin-right: 10px;
   }
 
   table {
@@ -242,5 +231,13 @@
 
   .majorHover:hover {
     background-color: rgb(244, 255, 244);
+  }
+
+  .menor {
+    color: red;
+  }
+
+  .major {
+    color: green;
   }
 </style>
