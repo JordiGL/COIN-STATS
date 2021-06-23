@@ -193,7 +193,7 @@
 
     .cercar {
       float: right;
-      margin-top: 30px;
+      margin-top: 28px;
       margin-right: 7px;
     }
 
