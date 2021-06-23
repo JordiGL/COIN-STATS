@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import Fa from "svelte-fa";
-  import { faSearchDollar } from "@fortawesome/free-solid-svg-icons";
   import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
@@ -12,7 +11,6 @@
   let ordrePerpercentatge = false;
   let posts = [];
   let response;
-  let valorACercar;
 
   //Subscripció a l'store.
   const unsubscribe = coinStore.subscribe((value) => {
@@ -71,7 +69,7 @@
   }
 
   //Funció per a fer la cerca.
-  async function cercar() {
+  async function cercar(valorACercar) {
     coinStore.update((valor) => {
       coins = valor;
       return coins;
@@ -81,7 +79,6 @@
       element.symbol.includes(valorACercar.toUpperCase())
     );
   }
-
   //Cancel·lar subscripció al tancar.
   onDestroy(unsubscribe);
 </script>
@@ -92,13 +89,10 @@
   <div class="cercar">
     <button on:click={refrescar}><Fa icon={faSync} /></button>
     <input
-      type="text"
+      class="cercador"
       placeholder="Cercar..."
-      name="search"
-      bind:value={valorACercar}
+      on:keyup={({ target: { value } }) => cercar(value)}
     />
-    <button type="submit" on:click={cercar}><Fa icon={faSearchDollar} /></button
-    >
   </div>
 </div>
 
@@ -107,8 +101,17 @@
   <thead>
     <tr>
       <th on:click={sort("symbol")}>Nom</th>
-      <th on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}>
+      <th
+        class="desktop"
+        on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
+      >
         Percentatge
+      </th>
+      <th
+        class="mobile"
+        on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
+      >
+        %
       </th>
       <th on:click={sort("lastPrice")}>Valor</th>
     </tr>
@@ -116,64 +119,123 @@
   <tbody>
     {#each coins as row}
       <tr class={row.priceChangePercent >= 0 ? "majorHover" : "menorHover"}>
-        <td>{row.symbol}</td>
+        <td class="desktop">{row.symbol}</td>
+        <td class="mobile">{row.symbol}</td>
         <td class={row.priceChangePercent >= 0 ? "major" : "menor"}>
           {parseFloat(row.priceChangePercent).toFixed(2)}
         </td>
-        <td>{row.lastPrice}</td>
+        <td class="desktop">{row.lastPrice}</td>
+        <td class="mobile">{row.lastPrice.substring(0, 11)}</td>
       </tr>
     {/each}
   </tbody>
 </table>
 
 <style>
+  /* mobile */
+  @media only screen and (max-width: 600px) {
+    .cercador {
+      width: 100px;
+    }
+    table th {
+      text-align: left;
+      background-color: #424242;
+      color: white;
+      padding: 15px;
+      resize: none;
+      font-size: 14px;
+    }
+
+    table td {
+      font-size: 14px;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      padding: 16px;
+
+      display: block;
+    }
+
+    .menor {
+      color: red;
+    }
+
+    .major {
+      color: green;
+    }
+  }
+  /* desktop */
+  @media only screen and (min-width: 600px) {
+    .cercador {
+      width: 120px;
+    }
+
+    table th {
+      text-align: center;
+      background-color: #424242;
+      color: white;
+      padding: 15px;
+      resize: none;
+    }
+
+    table td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .desktop {
+      display: block;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .menor {
+      color: red;
+    }
+
+    .major {
+      color: green;
+    }
+  }
+
   .container {
-    margin: none;
+    position: relative;
   }
   .title {
+    float: left;
     height: 44px;
     font-size: xx-large;
-    float: left;
+    margin-left: 10px;
+    padding: 2px;
   }
 
   .cercar {
     float: right;
+    padding: 6px;
+    margin-right: 10px;
   }
 
   table {
     font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
     width: 100%;
-  }
-
-  table th {
-    padding: 15px;
   }
 
   table tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
-  table th {
-    text-align: center;
-    background-color: #424242;
-    color: white;
-  }
-  td {
-    padding: 15px;
-  }
-
   tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
-  .menor {
-    color: red;
-  }
-
-  .major {
-    color: green;
-  }
   .menorHover:hover {
     background-color: rgb(255, 244, 244);
   }
