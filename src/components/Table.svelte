@@ -15,6 +15,7 @@
   let desktop = 600;
   let limitPercentatge = 0;
   let lastPriceSubstring = 11;
+  let timer;
 
   //Subscripció a l'store.
   const unsubscribe = coinStore.subscribe((value) => {
@@ -79,9 +80,12 @@
       return coins;
     });
 
-    coins = coins.filter((element) =>
-      element.symbol.includes(valorACercar.toUpperCase())
-    );
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      coins = coins.filter((element) =>
+        element.symbol.includes(valorACercar.toUpperCase())
+      );
+    }, 1250);
   }
   //Cancel·lar subscripció al tancar.
   onDestroy(unsubscribe);
