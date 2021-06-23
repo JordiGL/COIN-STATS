@@ -187,14 +187,14 @@
     }
     .title {
       float: left;
-      height: 44px;
-      font-size: xx-large;
-      padding: 6px;
+      margin-top: 12px;
+      font-size: 50px;
     }
 
     .cercar {
       float: right;
-      padding: 10px;
+      margin-top: 30px;
+      margin-right: 7px;
     }
 
     table th {
