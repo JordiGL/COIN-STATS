@@ -85,7 +85,7 @@
       coins = coins.filter((element) =>
         element.symbol.includes(valorACercar.toUpperCase())
       );
-    }, 1250);
+    }, 750);
   }
   //Cancel·lar subscripció al tancar.
   onDestroy(unsubscribe);
