@@ -148,7 +148,7 @@
       height: 44px;
       font-size: xx-large;
       margin-left: 2px;
-      padding: 13px;
+      padding: 14px;
     }
 
     .cercar {
@@ -185,7 +185,7 @@
       float: left;
       height: 44px;
       font-size: xx-large;
-      padding: 4px;
+      padding: 6px;
     }
 
     .cercar {
