@@ -4,6 +4,7 @@
   import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
+  import { twitterImage } from "./img";
 
   let coins;
   let modificadorOrdre;
@@ -143,6 +144,9 @@
     {/each}
   </tbody>
 </table>
+<footer>
+  <img class="avatar" src={twitterImage} alt="" /> Jordi Gómez Lozano - 2021
+</footer>
 
 <style>
   /* mobile */
@@ -243,5 +247,17 @@
 
   .major {
     color: green;
+  }
+
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #424242;
+    color: white;
+    text-align: center;
+    line-height: 40px;
   }
 </style>
