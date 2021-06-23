@@ -6,6 +6,7 @@ body {
 }
 
 body {
+  position: relative;
   color: #333;
   margin: 0;
   padding: none;
