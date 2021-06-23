@@ -4,7 +4,6 @@
   import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
-  import { twitterImage } from "./img";
 
   let coins;
   let modificadorOrdre;
@@ -142,31 +141,48 @@
         </td>
       </tr>
     {/each}
+    <td />
   </tbody>
 </table>
 <footer>
-  <img class="avatar" src={twitterImage} alt="" /> Jordi Gómez Lozano - 2021
+  <div>
+    <a class="footer-text" href="https://www.twitter.com/realGoloSEO">
+      Jordi Gómez Lozano - 2021
+    </a>
+  </div>
 </footer>
 
 <style>
   /* mobile */
   @media only screen and (max-width: 600px) {
+    .container {
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      height: 52px;
+    }
+
     .title {
       float: left;
-      height: 44px;
-      font-size: xx-large;
-      margin-left: 2px;
-      padding: 14px;
+      font-size: 40px;
+      margin-left: 10px;
+      margin-top: 0px;
     }
 
     .cercar {
       float: right;
-      padding: 15px;
-      margin-right: 2px;
+      margin-top: 8px;
+      margin-right: 10px;
     }
 
     .cercador {
       width: 100px;
+    }
+
+    table {
+      margin-top: 52px;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
     }
 
     table th {
@@ -184,8 +200,16 @@
       text-align: left;
     }
   }
+
   /* desktop */
   @media only screen and (min-width: 600px) {
+    .container {
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      height: 75px;
+    }
+
     .cercador {
       width: 200px;
     }
@@ -199,6 +223,12 @@
       float: right;
       margin-top: 28px;
       margin-right: 7px;
+    }
+
+    table {
+      margin-top: 72px;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
     }
 
     table th {
@@ -216,15 +246,6 @@
   }
 
   /* general */
-  .container {
-    position: relative;
-  }
-
-  table {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-  }
-
   table tr:nth-child(even) {
     background-color: #f2f2f2;
   }
@@ -249,15 +270,17 @@
     color: green;
   }
 
+  .footer-text {
+    color: white;
+    font-size: 15px;
+  }
+
   footer {
     position: fixed;
-    left: 0;
+    background-color: #424242;
     bottom: 0;
     width: 100%;
-    height: 40px;
-    background-color: #424242;
-    color: white;
-    text-align: center;
-    line-height: 40px;
+    height: 25px;
+    line-height: 25px;
   }
 </style>
