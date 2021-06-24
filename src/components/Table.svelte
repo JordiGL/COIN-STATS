@@ -108,15 +108,18 @@
 <table>
   <thead>
     <tr>
-      <th on:click={sort("symbol")}>Nom</th>
-      <th on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}>
+      <th class="nom-th" on:click={sort("symbol")}>Nom</th>
+      <th
+        class="percent-th"
+        on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
+      >
         {#if window.screen.width < desktop}
           {(percentatge = "24h %")}
         {:else}
           {percentatge}
         {/if}
       </th>
-      <th on:click={sort("lastPrice")}>Valor</th>
+      <th class="preu-th" on:click={sort("lastPrice")}>Valor</th>
     </tr>
   </thead>
   <tbody>
@@ -132,13 +135,7 @@
         >
           {parseFloat(row.priceChangePercent).toFixed(2)}
         </td>
-        <td>
-          {#if window.screen.width < desktop}
-            {row.lastPrice.substring(0, lastPriceSubstring)}
-          {:else}
-            {row.lastPrice}
-          {/if}
-        </td>
+        <td>{row.lastPrice}</td>
       </tr>
     {/each}
     <td />
@@ -185,13 +182,34 @@
       width: 100%;
     }
 
-    table th {
+    .percent-th {
       text-align: left;
       background-color: #424242;
       color: white;
       padding: 15px;
       resize: none;
       font-size: 14px;
+      width: 20%;
+    }
+
+    .nom-th {
+      text-align: left;
+      background-color: #424242;
+      color: white;
+      padding: 15px;
+      resize: none;
+      font-size: 14px;
+      width: 40%;
+    }
+
+    .preu-th {
+      text-align: left;
+      background-color: #424242;
+      color: white;
+      padding: 15px;
+      resize: none;
+      font-size: 14px;
+      width: 40%;
     }
 
     table td {
@@ -237,6 +255,7 @@
       color: white;
       padding: 15px;
       resize: none;
+      width: 30%;
     }
 
     table td {
