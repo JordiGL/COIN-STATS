@@ -13,6 +13,11 @@
   let posts = [];
   let response;
   let percentatge = "Price change percent";
+  let percentatgeMobile = "24h %";
+  let percentatgePopupMobile = "Price change %: ";
+  let percentatgePopup = "Price change percent: ";
+  let weightAveragePopupMobile = "Weighted avg: ";
+  let weightAveragePopup = "Weighted average: ";
   let desktop = 600;
   let limitPercentatge = 0;
   let timer;
@@ -122,7 +127,7 @@
         on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
       >
         {#if window.screen.width < desktop}
-          {(percentatge = "24h %")}
+          {percentatgeMobile}
         {:else}
           {percentatge}
         {/if}
@@ -150,46 +155,17 @@
     <td />
   </tbody>
   <Popup {isOpen} on:close={close}>
-    <!-- <table class="popupTable">
-      <tbody>
-        <tr>
-          <td>Coin: {moneda.symbol}</td>
-          <td>Last price: {moneda.lastPrice}</td>
-        </tr>
-        <tr>
-          <td>Open price: {moneda.openPrice}</td>
-          <td>Previous close price: {moneda.prevClosePrice}</td>
-        </tr>
-        <tr>
-          <td>Price change: {moneda.priceChange}</td>
-          <td>Price change percent: {moneda.priceChangePercent}</td>
-        </tr>
-        <tr>
-          <td>Weighted average price: {moneda.weightedAvgPrice}</td>
-          <td>Last quantity: {moneda.lastQty}</td>
-        </tr>
-        <tr>
-          <td>Bid price: {moneda.bidPrice}</td>
-          <td>Bid quantity: {moneda.bidQty}</td>
-        </tr>
-        <tr>
-          <td>Ask Price: {moneda.askPrice}</td>
-          <td>Ask quantity: {moneda.askQty}</td>
-        </tr>
-        <tr>
-          <td>High price: {moneda.highPrice}</td>
-          <td>Low price: {moneda.lowPrice}</td>
-        </tr>
-        <tr>
-          <td>Volume: {moneda.volume}</td>
-          <td>Quote volume: {moneda.quoteVolume}</td>
-        </tr>
-      </tbody>
-    </table> -->
     <table class="popupTable">
       <tbody>
         <tr>
-          <td>Coin: {moneda.symbol}</td>
+          {#if window.screen.width < desktop}
+            <td>
+              <div>Coin:</div>
+              <div>{moneda.symbol}</div>
+            </td>
+          {:else}
+            <td>Coin: {moneda.symbol}</td>
+          {/if}
           <td>Last price: {moneda.lastPrice}</td>
         </tr>
         <tr>
@@ -198,10 +174,24 @@
         </tr>
         <tr>
           <td>Price change: {moneda.priceChange}</td>
-          <td>Price change %: {moneda.priceChangePercent}</td>
+          <td>
+            {#if window.screen.width < desktop}
+              {percentatgePopupMobile}
+            {:else}
+              {percentatgePopup}
+            {/if}
+            {moneda.priceChangePercent}
+          </td>
         </tr>
         <tr>
-          <td>Weighted average: {moneda.weightedAvgPrice}</td>
+          <td>
+            {#if window.screen.width < desktop}
+              {weightAveragePopupMobile}
+            {:else}
+              {weightAveragePopup}
+            {/if}
+            {moneda.weightedAvgPrice}</td
+          >
           <td>Last quantity: {moneda.lastQty}</td>
         </tr>
         <tr>
@@ -373,12 +363,12 @@
 
     .popupTable tr td:nth-child(even) {
       padding-top: 10px;
-      padding-left: 40px;
+      padding-left: 10px;
     }
 
     .popupTable tr td:nth-child(odd) {
       padding-top: 10px;
-      padding-left: 10px;
+      padding-left: 5px;
     }
   }
 
