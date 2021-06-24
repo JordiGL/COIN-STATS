@@ -150,39 +150,93 @@
     <td />
   </tbody>
   <Popup {isOpen} on:close={close}>
+    <!-- <table class="popupTable">
+      <tbody>
+        <tr>
+          <td>Coin: {moneda.symbol}</td>
+          <td>Last price: {moneda.lastPrice}</td>
+        </tr>
+        <tr>
+          <td>Open price: {moneda.openPrice}</td>
+          <td>Previous close price: {moneda.prevClosePrice}</td>
+        </tr>
+        <tr>
+          <td>Price change: {moneda.priceChange}</td>
+          <td>Price change percent: {moneda.priceChangePercent}</td>
+        </tr>
+        <tr>
+          <td>Weighted average price: {moneda.weightedAvgPrice}</td>
+          <td>Last quantity: {moneda.lastQty}</td>
+        </tr>
+        <tr>
+          <td>Bid price: {moneda.bidPrice}</td>
+          <td>Bid quantity: {moneda.bidQty}</td>
+        </tr>
+        <tr>
+          <td>Ask Price: {moneda.askPrice}</td>
+          <td>Ask quantity: {moneda.askQty}</td>
+        </tr>
+        <tr>
+          <td>High price: {moneda.highPrice}</td>
+          <td>Low price: {moneda.lowPrice}</td>
+        </tr>
+        <tr>
+          <td>Volume: {moneda.volume}</td>
+          <td>Quote volume: {moneda.quoteVolume}</td>
+        </tr>
+      </tbody>
+    </table> -->
     <table class="popupTable">
       <tbody>
         <tr>
-          <td><b>Coin:</b> {moneda.symbol}</td>
-          <td><b>Last price:</b> {moneda.lastPrice}</td>
+          <td>Coin: {moneda.symbol}</td>
+          <td>Last price: {moneda.lastPrice}</td>
         </tr>
         <tr>
-          <td><b>Open price:</b> {moneda.openPrice}</td>
-          <td><b>Previous close price:</b> {moneda.prevClosePrice}</td>
+          <td>Open price: {moneda.openPrice}</td>
+          <td>Previous close: {moneda.prevClosePrice}</td>
         </tr>
         <tr>
-          <td><b>Price change:</b> {moneda.priceChange}</td>
-          <td><b>Price change percent:</b> {moneda.priceChangePercent}</td>
+          <td>Price change: {moneda.priceChange}</td>
+          <td>Price change %: {moneda.priceChangePercent}</td>
         </tr>
         <tr>
-          <td><b>Weighted average price:</b> {moneda.weightedAvgPrice}</td>
-          <td><b>Last quantity:</b> {moneda.lastQty}</td>
+          <td>Weighted average: {moneda.weightedAvgPrice}</td>
+          <td>Last quantity: {moneda.lastQty}</td>
         </tr>
         <tr>
-          <td><b>Bid price:</b> {moneda.bidPrice}</td>
-          <td><b>Bid quantity:</b> {moneda.bidQty}</td>
+          {#if window.screen.width < desktop}
+            <td>
+              <div>Bid price:</div>
+              <div>{moneda.bidPrice}</div>
+            </td>
+          {:else}
+            <td>Bid price: {moneda.bidPrice}</td>
+          {/if}
+          <td>Bid quantity: {moneda.bidQty}</td>
         </tr>
         <tr>
-          <td><b>Ask Price:</b> {moneda.askPrice}</td>
-          <td><b>Ask quantity:</b> {moneda.askQty}</td>
+          {#if window.screen.width < desktop}
+            <td>
+              <div>Ask Price:</div>
+              <div>{moneda.askPrice}</div>
+            </td>
+          {:else}
+            <td>Ask Price: {moneda.askPrice}</td>
+          {/if}
+          <td>Ask quantity: {moneda.askQty}</td>
         </tr>
         <tr>
-          <td><b>High price:</b> {moneda.highPrice}</td>
-          <td><b>Low price:</b> {moneda.lowPrice}</td>
+          <td>High price: {moneda.highPrice}</td>
+          <td>Low price: {moneda.lowPrice}</td>
         </tr>
         <tr>
-          <td><b>Volume:</b> {moneda.volume}</td>
-          <td><b>Quote volume:</b> {moneda.quoteVolume}</td>
+          <td>Volume: {moneda.volume}</td>
+          <td>Quote volume: {moneda.quoteVolume}</td>
+        </tr>
+        <tr>
+          <td />
+          <td class="closePopup"><b on:click={close}>X</b></td>
         </tr>
       </tbody>
     </table>
@@ -311,6 +365,9 @@
     }
   }
 
+  /* General */
+
+  /* Popup */
   .popupTable {
     width: 100%;
     border-collapse: collapse;
@@ -321,16 +378,26 @@
     width: 50%;
   }
 
-  .popupTable tr:nth-child(odd) {
+  /* .popupTable tr:nth-child(odd) {
     background-color: #f2f2f2;
+  } */
+
+  .popupTable tr td:nth-child(even) {
+    padding-top: 10px;
+    padding-left: 40px;
   }
 
-  .popupTable tr td {
-    border: none;
+  .popupTable tr td:nth-child(odd) {
+    padding-top: 10px;
     padding-right: 10px;
+    padding-left: 10px;
   }
 
-  /* general */
+  .closePopup {
+    float: right;
+  }
+
+  /* Taula principal */
 
   .taulaPrincipal .menorHover:hover {
     background-color: rgb(255, 244, 244);
