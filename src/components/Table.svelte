@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Fa from "svelte-fa";
-  import { faRainbow, faSync } from "@fortawesome/free-solid-svg-icons";
+  import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
   import Popup from "svelte-atoms/Popup.svelte";
@@ -331,16 +331,17 @@
   }
 
   /* general */
-  .taulaPrincipal tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
 
-  .menorHover:hover {
+  .taulaPrincipal .menorHover:hover {
     background-color: rgb(255, 244, 244);
   }
 
-  .majorHover:hover {
+  .taulaPrincipal .majorHover:hover {
     background-color: rgb(244, 255, 244);
+  }
+
+  .taulaPrincipal tr:nth-child(even) {
+    background-color: #f2f2f2;
   }
 
   .menor {
