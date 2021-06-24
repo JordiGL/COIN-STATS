@@ -315,6 +315,16 @@
       padding: 15px;
       text-align: left;
     }
+
+    .popupTable tr td:nth-child(even) {
+      padding-top: 10px;
+      padding-left: 25px;
+    }
+
+    .popupTable tr td:nth-child(odd) {
+      padding-top: 10px;
+      padding-left: 25px;
+    }
   }
 
   /* desktop */
@@ -360,6 +370,16 @@
       padding: 15px;
       text-align: center;
     }
+
+    .popupTable tr td:nth-child(even) {
+      padding-top: 10px;
+      padding-left: 40px;
+    }
+
+    .popupTable tr td:nth-child(odd) {
+      padding-top: 10px;
+      padding-left: 10px;
+    }
   }
 
   /* General */
@@ -373,21 +393,6 @@
 
   .popupTable tr {
     width: 50%;
-  }
-
-  /* .popupTable tr:nth-child(odd) {
-    background-color: #f2f2f2;
-  } */
-
-  .popupTable tr td:nth-child(even) {
-    padding-top: 10px;
-    padding-left: 40px;
-  }
-
-  .popupTable tr td:nth-child(odd) {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
   }
 
   .closePopup {
