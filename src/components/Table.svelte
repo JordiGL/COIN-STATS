@@ -234,12 +234,9 @@
           <td>Volume: {moneda.volume}</td>
           <td>Quote volume: {moneda.quoteVolume}</td>
         </tr>
-        <tr>
-          <td />
-          <td class="closePopup"><b on:click={close}>X</b></td>
-        </tr>
       </tbody>
     </table>
+    <b class="closePopup" on:click={close}>X</b>
   </Popup>
 </table>
 <footer>
