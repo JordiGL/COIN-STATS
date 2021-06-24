@@ -630,6 +630,11 @@
   dependencies:
     "has-flag" "^4.0.0"
 
+"svelte-atoms@^0.0.27":
+  "integrity" "sha512-fVWmTcvriXZSdB9LBZ0O5ay+OYoCa6c2Ck9Co60gF8UehqAh2uQ/POh+G32zc1sGye7PpaEV08sOnWIpYN2qWw=="
+  "resolved" "https://registry.npmjs.org/svelte-atoms/-/svelte-atoms-0.0.27.tgz"
+  "version" "0.0.27"
+
 "svelte-fa@^2.2.0":
   "integrity" "sha512-PN1H8AWDh+OwhwjJKTv4/zXvKvmvOEVSCVhIhji6Onx8XEw+CGf8BDR0BVUIp87IEX+DEqIo9pbyhgz8EoYZyA=="
   "resolved" "https://registry.npmjs.org/svelte-fa/-/svelte-fa-2.2.0.tgz"

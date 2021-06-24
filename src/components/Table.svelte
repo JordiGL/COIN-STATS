@@ -1,9 +1,10 @@
 <script>
   import { onMount } from "svelte";
   import Fa from "svelte-fa";
-  import { faSync } from "@fortawesome/free-solid-svg-icons";
+  import { faRainbow, faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
+  import Popup from "svelte-atoms/Popup.svelte";
 
   let coins;
   let modificadorOrdre;
@@ -11,22 +12,29 @@
   let ordrePerpercentatge = false;
   let posts = [];
   let response;
-  let percentatge = "Percentatge";
+  let percentatge = "Price change percent";
   let desktop = 600;
   let limitPercentatge = 0;
-  let lastPriceSubstring = 11;
   let timer;
+  let isOpen = false;
+  let moneda = [];
 
   //Subscripció a l'store.
   const unsubscribe = coinStore.subscribe((value) => {
     coins = value;
   });
 
+  //Càrrega de dades en iniciar.
   onMount(async () => {
     response = await fetch(url);
     posts = await response.json();
     coinStore.set(posts);
   });
+
+  //Popup
+  const close = () => (isOpen = false);
+  const open = (row) => ((isOpen = true), (moneda = row));
+
   //Inicialitzador de l'ordre de la columna.
   ordrePer = { defecte: "priceChangePercent", ascending: true };
 
@@ -98,17 +106,17 @@
     <button on:click={refrescar}><Fa icon={faSync} /></button>
     <input
       class="cercador"
-      placeholder="Cercar..."
+      placeholder="Search..."
       on:keyup={({ target: { value } }) => cercar(value)}
     />
   </div>
 </div>
 
 <!-- Taula -->
-<table>
+<table class="taulaPrincipal">
   <thead>
     <tr>
-      <th class="nom-th" on:click={sort("symbol")}>Nom</th>
+      <th class="nom-th" on:click={sort("symbol")}>Name</th>
       <th
         class="percent-th"
         on:click={(sort("priceChangePercent"), (ordrePerpercentatge = true))}
@@ -119,12 +127,13 @@
           {percentatge}
         {/if}
       </th>
-      <th class="preu-th" on:click={sort("lastPrice")}>Valor</th>
+      <th class="preu-th" on:click={sort("lastPrice")}>Last price</th>
     </tr>
   </thead>
   <tbody>
     {#each coins as row}
       <tr
+        on:click={open(row)}
         class={row.priceChangePercent >= limitPercentatge
           ? "majorHover"
           : "menorHover"}
@@ -140,6 +149,44 @@
     {/each}
     <td />
   </tbody>
+  <Popup {isOpen} on:close={close}>
+    <table class="popupTable">
+      <tbody>
+        <tr>
+          <td><b>Coin:</b> {moneda.symbol}</td>
+          <td><b>Last price:</b> {moneda.lastPrice}</td>
+        </tr>
+        <tr>
+          <td><b>Open price:</b> {moneda.openPrice}</td>
+          <td><b>Previous close price:</b> {moneda.prevClosePrice}</td>
+        </tr>
+        <tr>
+          <td><b>Price change:</b> {moneda.priceChange}</td>
+          <td><b>Price change percent:</b> {moneda.priceChangePercent}</td>
+        </tr>
+        <tr>
+          <td><b>Weighted avg price:</b> {moneda.weightedAvgPrice}</td>
+          <td><b>Last quantity:</b> {moneda.lastQty}</td>
+        </tr>
+        <tr>
+          <td><b>Bid price:</b> {moneda.bidPrice}</td>
+          <td><b>Bid quantity:</b> {moneda.bidQty}</td>
+        </tr>
+        <tr>
+          <td><b>Ask Price:</b> {moneda.askPrice}</td>
+          <td><b>Ask quantity:</b> {moneda.askQty}</td>
+        </tr>
+        <tr>
+          <td><b>High price:</b> {moneda.highPrice}</td>
+          <td><b>Low price:</b> {moneda.lowPrice}</td>
+        </tr>
+        <tr>
+          <td><b>Volume:</b> {moneda.volume}</td>
+          <td><b>Quote volume:</b> {moneda.quoteVolume}</td>
+        </tr>
+      </tbody>
+    </table>
+  </Popup>
 </table>
 <footer>
   <div>
@@ -176,7 +223,7 @@
       width: 100px;
     }
 
-    table {
+    .taulaPrincipal {
       margin-top: 52px;
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
@@ -212,7 +259,7 @@
       width: 40%;
     }
 
-    table td {
+    .taulaPrincipal td {
       font-size: 14px;
       padding: 15px;
       text-align: left;
@@ -243,13 +290,13 @@
       margin-right: 7px;
     }
 
-    table {
+    .taulaPrincipal {
       margin-top: 72px;
       font-family: Arial, Helvetica, sans-serif;
       width: 100%;
     }
 
-    table th {
+    .taulaPrincipal th {
       text-align: center;
       background-color: #424242;
       color: white;
@@ -258,18 +305,33 @@
       width: 30%;
     }
 
-    table td {
+    .taulaPrincipal td {
       padding: 15px;
       text-align: center;
     }
   }
 
-  /* general */
-  table tr:nth-child(even) {
+  .popupTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .popupTable tr {
+    width: 50%;
+  }
+
+  .popupTable tr:nth-child(odd) {
     background-color: #f2f2f2;
   }
 
-  tr:nth-child(even) {
+  .popupTable tr td {
+    border: none;
+    padding-right: 10px;
+  }
+
+  /* general */
+  .taulaPrincipal tr:nth-child(even) {
     background-color: #f2f2f2;
   }
 
