@@ -165,7 +165,7 @@
           <td><b>Price change percent:</b> {moneda.priceChangePercent}</td>
         </tr>
         <tr>
-          <td><b>Weighted avg price:</b> {moneda.weightedAvgPrice}</td>
+          <td><b>Weighted average price:</b> {moneda.weightedAvgPrice}</td>
           <td><b>Last quantity:</b> {moneda.lastQty}</td>
         </tr>
         <tr>
