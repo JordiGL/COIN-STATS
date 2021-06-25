@@ -197,7 +197,7 @@ button:focus {
 
   .popupTable tr td:nth-child(even) {
     padding-top: 10px;
-    padding-left: 10px;
+    padding-left: 50px;
   }
 
   .popupTable tr td:nth-child(odd) {
