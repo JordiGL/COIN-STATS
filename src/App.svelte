@@ -1,9 +1,11 @@
 <script>
   import Table from "./components/Table.svelte";
+  import Footer from "./components/Footer.svelte";
 </script>
 
 <main>
   <Table />
+  <Footer />
 </main>
 
 <style>
@@ -13,9 +15,8 @@
     padding: 0;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 640px) {
     main {
-      overflow: hidden;
       max-width: none;
     }
   }

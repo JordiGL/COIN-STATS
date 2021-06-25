@@ -67,3 +67,198 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+  .container {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 52px;
+  }
+
+  .title {
+    float: left;
+    font-size: 40px;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+
+  .cercar {
+    float: right;
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+
+  .cercador {
+    width: 100px;
+  }
+
+  .taulaPrincipal {
+    padding-top: 52px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+  }
+
+  .percent-th {
+    text-align: left;
+    background-color: #424242;
+    color: white;
+    padding: 15px;
+    resize: none;
+    font-size: 14px;
+    width: 20%;
+  }
+
+  .nom-th {
+    text-align: left;
+    background-color: #424242;
+    color: white;
+    padding: 15px;
+    resize: none;
+    font-size: 14px;
+    width: 40%;
+  }
+
+  .preu-th {
+    text-align: left;
+    background-color: #424242;
+    color: white;
+    padding: 15px;
+    resize: none;
+    font-size: 14px;
+    width: 40%;
+  }
+
+  .taulaPrincipal td {
+    font-size: 14px;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .popupTable tr td:nth-child(even) {
+    padding-top: 10px;
+    padding-left: 25px;
+  }
+
+  .popupTable tr td:nth-child(odd) {
+    padding-top: 10px;
+    padding-left: 25px;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 600px) {
+  .container {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 75px;
+  }
+
+  .cercador {
+    width: 200px;
+  }
+
+  .title {
+    float: left;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin-left: 7px;
+    margin-top: 12px;
+    font-size: 50px;
+  }
+
+  .cercar {
+    float: right;
+    margin-top: 28px;
+    margin-right: 7px;
+  }
+
+  .taulaPrincipal {
+    padding-top: 74px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+  }
+
+  .taulaPrincipal th {
+    text-align: center;
+    background-color: #424242;
+    color: white;
+    padding: 15px;
+    resize: none;
+    width: 30%;
+  }
+
+  .taulaPrincipal td {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .popupTable tr td:nth-child(even) {
+    padding-top: 10px;
+    padding-left: 50px;
+  }
+
+  .popupTable tr td:nth-child(odd) {
+    padding-top: 10px;
+    padding-left: 5px;
+  }
+}
+
+/* General */
+
+/* Popup */
+.popupTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.popupTable tr {
+  width: 50%;
+}
+
+.closePopup {
+  float: right;
+}
+
+.popUpValue {
+  color: #999;
+}
+
+/* Taula principal */
+
+.taulaPrincipal .menorHover:hover {
+  background-color: rgb(255, 244, 244);
+}
+
+.taulaPrincipal .majorHover:hover {
+  background-color: rgb(244, 255, 244);
+}
+
+.taulaPrincipal tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.menor {
+  color: red;
+}
+
+.major {
+  color: green;
+}
+
+footer .footer-text {
+  color: white;
+  font-size: 15px;
+}
+
+footer {
+  position: fixed;
+  background-color: #424242;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}

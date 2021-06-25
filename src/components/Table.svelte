@@ -4,7 +4,8 @@
   import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { onDestroy } from "svelte";
   import { coinStore, url } from "../store/stores";
-  import Popup from "svelte-atoms/Popup.svelte";
+  import Header from "./Header.svelte";
+  import Modal from "./Modal.svelte";
 
   let coins;
   let modificadorOrdre;
@@ -14,14 +15,11 @@
   let response;
   let percentatge = "Price change percent";
   let percentatgeMobile = "24h %";
-  let percentatgePopupMobile = "Price change %: ";
-  let percentatgePopup = "Price change percent: ";
-  let weightAveragePopupMobile = "Weighted avg: ";
-  let weightAveragePopup = "Weighted average: ";
+  let changeBooleanIsOpenInModal;
+  let modalComponent;
   let desktop = 600;
   let limitPercentatge = 0;
   let timer;
-  let isOpen = false;
   let moneda = [];
 
   //Subscripció a l'store.
@@ -36,9 +34,11 @@
     coinStore.set(posts);
   });
 
-  //Popup
-  const close = () => (isOpen = false);
-  const open = (row) => ((isOpen = true), (moneda = row));
+  //Modal
+  changeBooleanIsOpenInModal = function (value) {
+    moneda = value;
+    modalComponent.open();
+  };
 
   //Inicialitzador de l'ordre de la columna.
   ordrePer = { defecte: "priceChangePercent", ascending: true };
@@ -106,7 +106,7 @@
 
 <!-- Header que conté el títol, el botó per a refrescar el contingut de la taula i el cercador -->
 <div class="container">
-  <div class="title">COIN STATS</div>
+  <Header title="Coin stats" />
   <div class="cercar">
     <button on:click={refrescar}><Fa icon={faSync} /></button>
     <input
@@ -138,7 +138,7 @@
   <tbody>
     {#each coins as row}
       <tr
-        on:click={open(row)}
+        on:click|preventDefault={changeBooleanIsOpenInModal(row)}
         class={row.priceChangePercent >= limitPercentatge
           ? "majorHover"
           : "menorHover"}
@@ -154,274 +154,5 @@
     {/each}
     <td />
   </tbody>
-  <Popup {isOpen} on:close={close}>
-    <table class="popupTable">
-      <tbody>
-        <tr>
-          {#if window.screen.width < desktop}
-            <td>
-              <div>Coin:</div>
-              <div>{moneda.symbol}</div>
-            </td>
-          {:else}
-            <td>Coin: {moneda.symbol}</td>
-          {/if}
-          <td>Last price: {moneda.lastPrice}</td>
-        </tr>
-        <tr>
-          <td>Open price: {moneda.openPrice}</td>
-          <td>Previous close: {moneda.prevClosePrice}</td>
-        </tr>
-        <tr>
-          <td>Price change: {moneda.priceChange}</td>
-          <td>
-            {#if window.screen.width < desktop}
-              {percentatgePopupMobile}
-            {:else}
-              {percentatgePopup}
-            {/if}
-            {moneda.priceChangePercent}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            {#if window.screen.width < desktop}
-              {weightAveragePopupMobile}
-            {:else}
-              {weightAveragePopup}
-            {/if}
-            {moneda.weightedAvgPrice}</td
-          >
-          <td>Last quantity: {moneda.lastQty}</td>
-        </tr>
-        <tr>
-          {#if window.screen.width < desktop}
-            <td>
-              <div>Bid price:</div>
-              <div>{moneda.bidPrice}</div>
-            </td>
-          {:else}
-            <td>Bid price: {moneda.bidPrice}</td>
-          {/if}
-          <td>Bid quantity: {moneda.bidQty}</td>
-        </tr>
-        <tr>
-          {#if window.screen.width < desktop}
-            <td>
-              <div>Ask Price:</div>
-              <div>{moneda.askPrice}</div>
-            </td>
-          {:else}
-            <td>Ask Price: {moneda.askPrice}</td>
-          {/if}
-          <td>Ask quantity: {moneda.askQty}</td>
-        </tr>
-        <tr>
-          <td>High price: {moneda.highPrice}</td>
-          <td>Low price: {moneda.lowPrice}</td>
-        </tr>
-        <tr>
-          <td>Volume: {moneda.volume}</td>
-          <td>Quote volume: {moneda.quoteVolume}</td>
-        </tr>
-      </tbody>
-    </table>
-    <b class="closePopup" on:click={close}>X</b>
-  </Popup>
+  <svelte:component this={Modal} {moneda} bind:this={modalComponent} />
 </table>
-<footer>
-  <div>
-    <a class="footer-text" href="https://www.twitter.com/realGoloSEO">
-      Jordi Gómez Lozano - 2021
-    </a>
-  </div>
-</footer>
-
-<style>
-  /* mobile */
-  @media only screen and (max-width: 600px) {
-    .container {
-      position: fixed;
-      background-color: white;
-      width: 100%;
-      height: 52px;
-    }
-
-    .title {
-      float: left;
-      font-size: 40px;
-      margin-left: 10px;
-      margin-top: 0px;
-    }
-
-    .cercar {
-      float: right;
-      margin-top: 8px;
-      margin-right: 10px;
-    }
-
-    .cercador {
-      width: 100px;
-    }
-
-    .taulaPrincipal {
-      margin-top: 52px;
-      font-family: Arial, Helvetica, sans-serif;
-      width: 100%;
-    }
-
-    .percent-th {
-      text-align: left;
-      background-color: #424242;
-      color: white;
-      padding: 15px;
-      resize: none;
-      font-size: 14px;
-      width: 20%;
-    }
-
-    .nom-th {
-      text-align: left;
-      background-color: #424242;
-      color: white;
-      padding: 15px;
-      resize: none;
-      font-size: 14px;
-      width: 40%;
-    }
-
-    .preu-th {
-      text-align: left;
-      background-color: #424242;
-      color: white;
-      padding: 15px;
-      resize: none;
-      font-size: 14px;
-      width: 40%;
-    }
-
-    .taulaPrincipal td {
-      font-size: 14px;
-      padding: 15px;
-      text-align: left;
-    }
-
-    .popupTable tr td:nth-child(even) {
-      padding-top: 10px;
-      padding-left: 25px;
-    }
-
-    .popupTable tr td:nth-child(odd) {
-      padding-top: 10px;
-      padding-left: 25px;
-    }
-  }
-
-  /* desktop */
-  @media only screen and (min-width: 600px) {
-    .container {
-      position: fixed;
-      background-color: white;
-      width: 100%;
-      height: 75px;
-    }
-
-    .cercador {
-      width: 200px;
-    }
-    .title {
-      float: left;
-      margin-top: 12px;
-      font-size: 50px;
-    }
-
-    .cercar {
-      float: right;
-      margin-top: 28px;
-      margin-right: 7px;
-    }
-
-    .taulaPrincipal {
-      margin-top: 72px;
-      font-family: Arial, Helvetica, sans-serif;
-      width: 100%;
-    }
-
-    .taulaPrincipal th {
-      text-align: center;
-      background-color: #424242;
-      color: white;
-      padding: 15px;
-      resize: none;
-      width: 30%;
-    }
-
-    .taulaPrincipal td {
-      padding: 15px;
-      text-align: center;
-    }
-
-    .popupTable tr td:nth-child(even) {
-      padding-top: 10px;
-      padding-left: 10px;
-    }
-
-    .popupTable tr td:nth-child(odd) {
-      padding-top: 10px;
-      padding-left: 5px;
-    }
-  }
-
-  /* General */
-
-  /* Popup */
-  .popupTable {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  .popupTable tr {
-    width: 50%;
-  }
-
-  .closePopup {
-    float: right;
-  }
-
-  /* Taula principal */
-
-  .taulaPrincipal .menorHover:hover {
-    background-color: rgb(255, 244, 244);
-  }
-
-  .taulaPrincipal .majorHover:hover {
-    background-color: rgb(244, 255, 244);
-  }
-
-  .taulaPrincipal tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-
-  .menor {
-    color: red;
-  }
-
-  .major {
-    color: green;
-  }
-
-  .footer-text {
-    color: white;
-    font-size: 15px;
-  }
-
-  footer {
-    position: fixed;
-    background-color: #424242;
-    bottom: 0;
-    width: 100%;
-    height: 25px;
-    line-height: 25px;
-  }
-</style>
