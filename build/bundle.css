@@ -137,13 +137,12 @@ button:focus {
   }
 
   .popupTable tr td:nth-child(even) {
-    padding-top: 10px;
+    padding-top: 3px;
     padding-left: 25px;
   }
 
   .popupTable tr td:nth-child(odd) {
-    padding-top: 10px;
-    padding-left: 25px;
+    padding-top: 3px;
   }
 }
 
