@@ -1,9 +1,11 @@
 <script>
   import Table from "./components/Table.svelte";
+  import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
 </script>
 
 <main>
+  <Header />
   <Table />
   <Footer />
 </main>
