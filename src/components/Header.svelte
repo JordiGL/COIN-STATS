@@ -11,6 +11,8 @@
   let coins;
   let auxCoins;
   let timer;
+  let inputField;
+  let auxStore;
 
   //En iniciar carrega les dades a l'estore.
   onMount(async () => {
@@ -24,7 +26,36 @@
   async function refrescar() {
     response = await fetch(url);
     posts = await response.json();
-    coinStore.set(posts);
+    if (inputField == "") {
+      coinStore.set(posts);
+    } else {
+      coinStore.update((actualStore) => {
+        actualStore.forEach((actualElement) => {
+          posts.forEach((newValue) => {
+            if (actualElement.symbol == newValue.symbol) {
+              actualElement.askPrice = newValue.askPrice;
+              actualElement.askQty = newValue.askQty;
+              actualElement.bidQty = newValue.bidQty;
+              actualElement.highPrice = newValue.highPrice;
+              actualElement.lastPrice = newValue.lastPrice;
+              actualElement.lastQty = newValue.lastQty;
+              actualElement.lowPrice = newValue.lowPrice;
+              actualElement.openPrice = newValue.openPrice;
+              actualElement.prevClosePrice = newValue.prevClosePrice;
+              actualElement.priceChange = newValue.priceChange;
+              actualElement.priceChangePercent = newValue.priceChangePercent;
+              actualElement.quoteVolume = newValue.quoteVolume;
+              actualElement.volume = newValue.volume;
+              actualElement.weightedAvgPrice = newValue.weightedAvgPrice;
+              actualElement.bidPrice = newValue.bidPrice;
+            }
+          });
+        });
+        auxStore = actualStore;
+        return actualStore;
+      });
+      coinStore.set(auxStore);
+    }
   }
 
   //Funció per a cercar un valor
@@ -49,6 +80,7 @@
       class="cercador"
       placeholder="Search..."
       on:keyup={({ target: { value } }) => cercar(value)}
+      bind:value={inputField}
     />
   </div>
 </div>
