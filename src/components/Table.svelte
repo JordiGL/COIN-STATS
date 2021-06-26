@@ -1,28 +1,20 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
-  import { coinStore, url } from "../store/stores";
+  import { onDestroy } from "svelte";
+  import { coinStore } from "../store/stores";
   import Modal from "./Modal.svelte";
 
   let coins = [];
   let modificadorOrdre;
   let ordrePer;
-  let posts = [];
-  let response;
-  let percentatge = "Price change percent";
-  let percentatgeMobile = "24h %";
   let changeBooleanIsOpenInModal;
   let modalComponent;
   let desktop = 600;
   let limitPercentatge = 0;
-
   let moneda = [];
-
-  //En iniciar carrega les dades a l'estore.
-  onMount(async () => {
-    response = await fetch(url);
-    posts = await response.json();
-    coinStore.set(posts);
-  });
+  let primeraColumna = "nom";
+  let segonaColumna = "Price change percent";
+  let segonaColumnaMobile = "24h %";
+  let terceraColumna = "Last price";
 
   //Subscripció a l'store.
   const unsubscribe = coinStore.subscribe((value) => {
@@ -82,15 +74,15 @@
 <table class="taulaPrincipal">
   <thead>
     <tr>
-      <th class="nom-th" on:click={sort("symbol")}>Name</th>
+      <th class="nom-th" on:click={sort("symbol")}>{primeraColumna}</th>
       <th class="percent-th" on:click={sort("priceChangePercent")}>
         {#if window.screen.width < desktop}
-          {percentatgeMobile}
+          {segonaColumnaMobile}
         {:else}
-          {percentatge}
+          {segonaColumna}
         {/if}
       </th>
-      <th class="preu-th" on:click={sort("lastPrice")}>Last price</th>
+      <th class="preu-th" on:click={sort("lastPrice")}>{terceraColumna}</th>
     </tr>
   </thead>
   <tbody>

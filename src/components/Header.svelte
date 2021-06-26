@@ -2,25 +2,24 @@
   import "../../public/global.css";
   import Fa from "svelte-fa";
   import { faSync } from "@fortawesome/free-solid-svg-icons";
-  import { coinStore, url } from "../store/stores";
-  import { onMount } from "svelte";
+  import { coinStore, url, data } from "../store/stores";
+  import { onDestroy } from "svelte";
 
   let title = "Coin stats";
   let response;
   let posts;
   let coins;
-  let auxCoins;
   let timer;
   let inputField;
   let auxStore;
 
-  //En iniciar carrega les dades a l'estore.
-  onMount(async () => {
-    response = await fetch(url);
-    posts = await response.json();
-    coins = posts;
-    coinStore.set(posts);
+  //Subscripció a l'store.
+  const unsubscribe = coinStore.subscribe((value) => {
+    coins = value;
   });
+
+  //Cancel·lar subscripció al tancar.
+  onDestroy(unsubscribe);
 
   //Funció per a refrescar la taula
   async function refrescar() {
@@ -63,10 +62,10 @@
     clearTimeout(timer);
     timer = setTimeout(() => {
       coinStore.update(() => {
-        auxCoins = coins.filter((element) =>
+        coins = data.filter((element) =>
           element.symbol.includes(value.toUpperCase())
         );
-        return auxCoins;
+        return coins;
       });
     }, 750);
   }
