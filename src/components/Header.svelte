@@ -21,13 +21,15 @@
   //Cancel·lar subscripció al tancar.
   onDestroy(unsubscribe);
 
-  //Funció per a refrescar la taula
+  //Funció per a refrescar la taula mantenint l'ordre
   async function refrescar() {
+    //Obtenir dades
     response = await fetch(url);
     posts = await response.json();
     if (inputField == "") {
       coinStore.set(posts);
     } else {
+      //Comparació i actualització d'estore.
       coinStore.update((actualStore) => {
         actualStore.forEach((actualElement) => {
           posts.forEach((newValue) => {
