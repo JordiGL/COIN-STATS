@@ -2,10 +2,12 @@
   import Table from "./components/Table.svelte";
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
+
+  let name = "Coin stats";
 </script>
 
 <main>
-  <Header />
+  <Header {name} />
   <Table />
   <Footer />
 </main>
