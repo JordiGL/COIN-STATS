@@ -1,32 +1,34 @@
+const valorsColumnes = ["symbol",  "lastPrice", "priceChangePercent"];
+
 export function sortOn(array, option, ascendent) {
-    if(option == "Nom"){
+    if(option == valorsColumnes[0]){
         if(ascendent){
             array.sort((firstElement, secondElement) =>
-                firstElement.symbol.toLowerCase().localeCompare(secondElement.symbol.toLowerCase())
+                firstElement[valorsColumnes[0]].toLowerCase().localeCompare(secondElement[valorsColumnes[0]].toLowerCase())
             );
         } else {
             array.sort((firstElement, secondElement) =>
-                secondElement.symbol.toLowerCase().localeCompare(firstElement.symbol.toLowerCase())
+                secondElement[valorsColumnes[0]].toLowerCase().localeCompare(firstElement[valorsColumnes[0]].toLowerCase())
             );
         }    
-    } else if (option == "Last price") {
+    } else if (option == valorsColumnes[1]) {
         if(ascendent){
             array.sort((firstElement, secondElement) =>
-                firstElement.lastPrice - secondElement.lastPrice
+                firstElement[valorsColumnes[1]] - secondElement[valorsColumnes[1]]
             );
         }else{
             array.sort((firstElement, secondElement) =>
-                secondElement.lastPrice - firstElement.lastPrice
+                secondElement[valorsColumnes[1]] - firstElement[valorsColumnes[1]]
             );           
         }        
-    } else if (option == "Price change percent") {
+    } else if (option == valorsColumnes[2]) {
         if(ascendent){
             array.sort((firstElement, secondElement) =>
-                firstElement.priceChangePercent - secondElement.priceChangePercent
+                firstElement[valorsColumnes[2]] - secondElement[valorsColumnes[2]]
             );
         }else{
             array.sort((firstElement, secondElement) =>
-                secondElement.priceChangePercent - firstElement.priceChangePercent
+                secondElement[valorsColumnes[2]] - firstElement[valorsColumnes[2]]
             );           
         }        
     }     

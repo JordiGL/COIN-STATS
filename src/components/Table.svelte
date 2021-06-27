@@ -3,17 +3,14 @@
   import Modal from "./Modal.svelte";
   import { sortOn } from "../gestor/utils";
 
+  const nomColumnes = ["Nom", "Price change percent", "24h %", "Last price"];
+  const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
+  const desktop = 600;
+  const limitPercentatge = 0;
   let changeBooleanIsOpenInModal;
   let modalComponent;
-  let desktop = 600;
-  let limitPercentatge = 0;
   let moneda = [];
-  let primeraColumna = "Nom";
-  let segonaColumna = "Price change percent";
-  let segonaColumnaMobile = "24h %";
-  let terceraColumna = "Last price";
   let ascendent = true;
-  let descendent = false;
 
   //Modal
   changeBooleanIsOpenInModal = function (value) {
@@ -27,7 +24,7 @@
       coinStore.set(sortOn(Object.values($coinStore), option, ascendent));
       ascendent = false;
     } else {
-      coinStore.set(sortOn(Object.values($coinStore), option, descendent));
+      coinStore.set(sortOn(Object.values($coinStore), option, ascendent));
       ascendent = true;
     }
   }
@@ -37,18 +34,18 @@
 <table class="taulaPrincipal">
   <thead>
     <tr>
-      <th class="nom-th" on:click={() => coinsSort(primeraColumna, true)}
-        >{primeraColumna}</th
+      <th class="nom-th" on:click={() => coinsSort(valorsColumnes[0])}
+        >{nomColumnes[0]}</th
       >
-      <th class="percent-th" on:click={() => coinsSort(segonaColumna, true)}>
+      <th class="percent-th" on:click={() => coinsSort(valorsColumnes[1])}>
         {#if window.screen.width < desktop}
-          {segonaColumnaMobile}
+          {nomColumnes[2]}
         {:else}
-          {segonaColumna}
+          {nomColumnes[1]}
         {/if}
       </th>
-      <th class="preu-th" on:click={() => coinsSort(terceraColumna, true)}
-        >{terceraColumna}</th
+      <th class="preu-th" on:click={() => coinsSort(valorsColumnes[2])}
+        >{nomColumnes[3]}</th
       >
     </tr>
   </thead>
@@ -56,17 +53,17 @@
     {#each $coinStore as row}
       <tr
         on:click|preventDefault={changeBooleanIsOpenInModal(row)}
-        class={row.priceChangePercent >= limitPercentatge
+        class={row[valorsColumnes[1]] >= limitPercentatge
           ? "majorHover"
           : "menorHover"}
       >
-        <td>{row.symbol}</td>
+        <td>{row[valorsColumnes[0]]}</td>
         <td
-          class={row.priceChangePercent >= limitPercentatge ? "major" : "menor"}
+          class={row[valorsColumnes[1]] >= limitPercentatge ? "major" : "menor"}
         >
-          {parseFloat(row.priceChangePercent).toFixed(2)}
+          {parseFloat(row[valorsColumnes[1]]).toFixed(2)}
         </td>
-        <td>{row.lastPrice}</td>
+        <td>{row[valorsColumnes[2]]}</td>
       </tr>
     {/each}
     <td />
