@@ -4,9 +4,8 @@
   import { sortOn } from "../gestor/utils";
   import { Circle2 } from "svelte-loading-spinners";
 
-  const nomColumnes = ["Nom", "Price change percent", "24h %", "Last price"];
+  const nomColumnes = ["Nom", "24h %", "Last price"];
   const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
-  const desktop = 600;
   const limitPercentatge = 0;
   let changeBooleanIsOpenInModal;
   let modalComponent;
@@ -39,14 +38,10 @@
         >{nomColumnes[0]}</th
       >
       <th class="percent-th" on:click={() => coinsSort(valorsColumnes[1])}>
-        {#if window.screen.width < desktop}
-          {nomColumnes[2]}
-        {:else}
-          {nomColumnes[1]}
-        {/if}
+        {nomColumnes[1]}
       </th>
       <th class="preu-th" on:click={() => coinsSort(valorsColumnes[2])}
-        >{nomColumnes[3]}</th
+        >{nomColumnes[2]}</th
       >
     </tr>
   </thead>
