@@ -147,7 +147,7 @@ footer {
   .loadingLoad {
     position: absolute;
     top: 37%;
-    left: 42%;
+    left: 37%;
   }
 
   .title {
@@ -174,19 +174,6 @@ footer {
     border-spacing: 0px;
   }
 
-  .percent-th {
-    position: fixed;
-    text-align: left;
-    background-color: #424242;
-    color: white;
-    padding: 9px;
-    padding-left: 20px;
-    resize: none;
-    font-size: 14px;
-    margin-left: 36.9%;
-    width: 33.3%;
-  }
-
   .nom-th {
     position: fixed;
     text-align: left;
@@ -197,7 +184,20 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 0%;
-    width: 33.3%;
+    width: 33.4%;
+  }
+
+  .percent-th {
+    position: fixed;
+    text-align: left;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    padding-left: 32px;
+    resize: none;
+    font-size: 14px;
+    margin-left: 33.3%;
+    width: 33.4%;
   }
 
   .preu-th {
@@ -206,11 +206,11 @@ footer {
     background-color: #424242;
     color: white;
     padding: 9px;
-    padding-left: 16px;
+    padding-left: 12px;
     margin-left: 61%;
     resize: none;
     font-size: 14px;
-    width: 33.3%;
+    width: 33.4%;
   }
 
   .taulaPrincipal td {
@@ -242,7 +242,7 @@ footer {
 
   .loadingLoad {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 46%;
   }
 
@@ -271,19 +271,6 @@ footer {
     width: 100%;
     border-spacing: 0px;
   }
-
-  .percent-th {
-    text-align: center;
-    position: fixed;
-    background-color: #424242;
-    color: white;
-    padding: 9px;
-    resize: none;
-    font-size: 14px;
-    margin-left: 33.3%;
-    width: 33.3%;
-  }
-
   .nom-th {
     position: fixed;
     text-align: center;
@@ -293,7 +280,19 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 0%;
-    width: 33.3%;
+    width: 33.4%;
+  }
+
+  .percent-th {
+    text-align: center;
+    position: fixed;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    resize: none;
+    font-size: 14px;
+    margin-left: 33.2%;
+    width: 33.2%;
   }
 
   .preu-th {
@@ -305,13 +304,14 @@ footer {
     margin-left: 66.6%;
     resize: none;
     font-size: 14px;
-    width: 33.3%;
+    width: 33.4%;
   }
 
   .taulaPrincipal td {
     padding: 16px;
     text-align: center;
     border-left: 1px solid white;
+    padding-left: 34px;
     width: 33.3%;
   }
 

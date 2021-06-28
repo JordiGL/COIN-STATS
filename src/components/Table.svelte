@@ -72,7 +72,7 @@
         <td />
         <div class="loading">
           <div class="loadingLoad">
-            <Circle2 size="60" color="white" unit="px" duration="1s" />
+            <Circle2 size="100" unit="px" />
           </div>
         </div>
         <td />
