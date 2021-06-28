@@ -147,7 +147,7 @@ footer {
   .loadingLoad {
     position: absolute;
     top: 37%;
-    left: 42%;
+    left: 37%;
   }
 
   .title {
@@ -174,19 +174,6 @@ footer {
     border-spacing: 0px;
   }
 
-  .percent-th {
-    position: fixed;
-    text-align: left;
-    background-color: #424242;
-    color: white;
-    padding: 9px;
-    padding-left: 20px;
-    resize: none;
-    font-size: 14px;
-    margin-left: 36.9%;
-    width: 33.3%;
-  }
-
   .nom-th {
     position: fixed;
     text-align: left;
@@ -200,13 +187,26 @@ footer {
     width: 33.3%;
   }
 
+  .percent-th {
+    position: fixed;
+    text-align: left;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    padding-left: 20px;
+    resize: none;
+    font-size: 14px;
+    margin-left: 36.9%;
+    width: 33.3%;
+  }
+
   .preu-th {
     position: fixed;
     text-align: left;
     background-color: #424242;
     color: white;
     padding: 9px;
-    padding-left: 15px;
+    padding-left: 12px;
     margin-left: 61%;
     resize: none;
     font-size: 14px;
@@ -271,6 +271,17 @@ footer {
     width: 100%;
     border-spacing: 0px;
   }
+  .nom-th {
+    position: fixed;
+    text-align: center;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    resize: none;
+    font-size: 14px;
+    margin-left: 0%;
+    width: 33.3%;
+  }
 
   .percent-th {
     text-align: center;
@@ -281,18 +292,6 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 33.3%;
-    width: 33.3%;
-  }
-
-  .nom-th {
-    position: fixed;
-    text-align: center;
-    background-color: #424242;
-    color: white;
-    padding: 9px;
-    resize: none;
-    font-size: 14px;
-    margin-left: 0%;
     width: 33.3%;
   }
 
