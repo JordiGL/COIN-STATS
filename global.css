@@ -1,3 +1,4 @@
+/* General */
 html,
 body {
   position: relative;
@@ -68,6 +69,72 @@ button:focus {
   border-color: #666;
 }
 
+/* Popup */
+.popupTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.popupTable tr {
+  width: 50%;
+}
+
+.closePopup {
+  float: right;
+}
+
+.popUpValue {
+  color: #999;
+}
+
+/* Taula principal */
+.taulaPrincipal .menorHover:hover {
+  background-color: rgb(255, 244, 244);
+}
+
+.taulaPrincipal .majorHover:hover {
+  background-color: rgb(244, 255, 244);
+}
+
+.taulaPrincipal tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.menor {
+  color: red;
+}
+
+.major {
+  color: green;
+}
+
+.loading {
+  background-color: #424242;
+  color: white;
+  height: 10em;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+/* Footer */
+footer .footer-text {
+  color: white;
+  font-size: 15px;
+}
+
+footer {
+  position: fixed;
+  background-color: #424242;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+
 /* mobile */
 @media only screen and (max-width: 600px) {
   .container {
@@ -75,6 +142,19 @@ button:focus {
     background-color: white;
     width: 100%;
     height: 52px;
+  }
+
+  .titleLoad {
+    font-size: 40px;
+    position: absolute;
+    top: 35%;
+    left: 27%;
+  }
+
+  .loadinLoad {
+    position: absolute;
+    top: 45%;
+    left: 40%;
   }
 
   .title {
@@ -155,6 +235,19 @@ button:focus {
     height: 75px;
   }
 
+  .titleLoad {
+    font-size: 40px;
+    position: absolute;
+    top: 35%;
+    left: 43%;
+  }
+
+  .loadinLoad {
+    position: absolute;
+    top: 45%;
+    left: 47%;
+  }
+
   .cercador {
     width: 200px;
   }
@@ -203,61 +296,4 @@ button:focus {
     padding-top: 10px;
     padding-left: 5px;
   }
-}
-
-/* General */
-
-/* Popup */
-.popupTable {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.popupTable tr {
-  width: 50%;
-}
-
-.closePopup {
-  float: right;
-}
-
-.popUpValue {
-  color: #999;
-}
-
-/* Taula principal */
-
-.taulaPrincipal .menorHover:hover {
-  background-color: rgb(255, 244, 244);
-}
-
-.taulaPrincipal .majorHover:hover {
-  background-color: rgb(244, 255, 244);
-}
-
-.taulaPrincipal tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.menor {
-  color: red;
-}
-
-.major {
-  color: green;
-}
-
-footer .footer-text {
-  color: white;
-  font-size: 15px;
-}
-
-footer {
-  position: fixed;
-  background-color: #424242;
-  bottom: 0;
-  width: 100%;
-  height: 25px;
-  line-height: 25px;
 }
