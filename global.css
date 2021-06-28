@@ -184,7 +184,7 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 0%;
-    width: 33.3%;
+    width: 33.4%;
   }
 
   .percent-th {
@@ -197,7 +197,7 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 33.3%;
-    width: 33.3%;
+    width: 33.4%;
   }
 
   .preu-th {
@@ -210,7 +210,7 @@ footer {
     margin-left: 61%;
     resize: none;
     font-size: 14px;
-    width: 33.3%;
+    width: 33.4%;
   }
 
   .taulaPrincipal td {
@@ -242,7 +242,7 @@ footer {
 
   .loadingLoad {
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 46%;
   }
 
@@ -280,7 +280,7 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 0%;
-    width: 32.3%;
+    width: 33.4%;
   }
 
   .percent-th {
@@ -291,8 +291,8 @@ footer {
     padding: 9px;
     resize: none;
     font-size: 14px;
-    margin-left: 33.3%;
-    width: 32.3%;
+    margin-left: 33.2%;
+    width: 33.2%;
   }
 
   .preu-th {
@@ -304,13 +304,14 @@ footer {
     margin-left: 66.6%;
     resize: none;
     font-size: 14px;
-    width: 32.3%;
+    width: 33.4%;
   }
 
   .taulaPrincipal td {
     padding: 16px;
     text-align: center;
     border-left: 1px solid white;
+    padding-left: 34px;
     width: 33.3%;
   }
 
