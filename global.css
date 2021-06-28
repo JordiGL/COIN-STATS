@@ -193,10 +193,10 @@ footer {
     background-color: #424242;
     color: white;
     padding: 9px;
-    padding-left: 20px;
+    padding-left: 36px;
     resize: none;
     font-size: 14px;
-    margin-left: 36.9%;
+    margin-left: 33.3%;
     width: 33.3%;
   }
 
@@ -280,7 +280,7 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 0%;
-    width: 33.3%;
+    width: 32.3%;
   }
 
   .percent-th {
@@ -292,7 +292,7 @@ footer {
     resize: none;
     font-size: 14px;
     margin-left: 33.3%;
-    width: 33.3%;
+    width: 32.3%;
   }
 
   .preu-th {
@@ -304,7 +304,7 @@ footer {
     margin-left: 66.6%;
     resize: none;
     font-size: 14px;
-    width: 33.3%;
+    width: 32.3%;
   }
 
   .taulaPrincipal td {
