@@ -124,7 +124,7 @@ button:focus {
 footer .footer-text {
   color: white;
   font-size: 15px;
-  left: 60%;
+  left: 62%;
 }
 
 footer {
@@ -147,8 +147,8 @@ footer {
 
   .loadingLoad {
     position: absolute;
-    top: 45%;
-    left: 48%;
+    top: 37%;
+    left: 42%;
   }
 
   .title {
@@ -232,7 +232,7 @@ footer {
   .loadingLoad {
     position: absolute;
     top: 45%;
-    left: 48%;
+    left: 46%;
   }
 
   .cercador {
