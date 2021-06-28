@@ -829,6 +829,11 @@
   "resolved" "https://registry.npmjs.org/svelte-fa/-/svelte-fa-2.2.0.tgz"
   "version" "2.2.0"
 
+"svelte-loading-spinners@^0.1.5":
+  "integrity" "sha512-HpNwNd0jfZAQ2DDMwe5yF8hSUeSSTI5LpkNFhmBDmS/G5r/GdWEP4o6V79sXFC6B1ts+e799aM5FqIC3TyosKw=="
+  "resolved" "https://registry.npmjs.org/svelte-loading-spinners/-/svelte-loading-spinners-0.1.5.tgz"
+  "version" "0.1.5"
+
 "svelte-materialify@^0.3.11":
   "integrity" "sha512-MLtZtdSOHditOdJOYqlB8s7NxIFRbYKXJzij5s9gz5WVbJFVEqdX2TqOleg4wYeMOujtOCm+/x3RP5YGyzRxIQ=="
   "resolved" "https://registry.npmjs.org/svelte-materialify/-/svelte-materialify-0.3.11.tgz"

@@ -1,3 +1,4 @@
+/* General */
 html,
 body {
   position: relative;
@@ -68,6 +69,72 @@ button:focus {
   border-color: #666;
 }
 
+/* Popup */
+.popupTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.popupTable tr {
+  width: 50%;
+}
+
+.closePopup {
+  float: right;
+}
+
+.popUpValue {
+  color: #999;
+}
+
+/* Taula principal */
+.taulaPrincipal .menorHover:hover {
+  background-color: rgb(255, 244, 244);
+}
+
+.taulaPrincipal .majorHover:hover {
+  background-color: rgb(244, 255, 244);
+}
+
+.taulaPrincipal tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.menor {
+  color: red;
+}
+
+.major {
+  color: green;
+}
+
+.loading {
+  background-color: #424242;
+  color: white;
+  height: 10em;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+/* Footer */
+footer .footer-text {
+  color: white;
+  font-size: 15px;
+}
+
+footer {
+  position: fixed;
+  background-color: #424242;
+  bottom: 0;
+  width: 101%;
+  height: 25px;
+  line-height: 25px;
+}
+
 /* mobile */
 @media only screen and (max-width: 600px) {
   .container {
@@ -75,6 +142,12 @@ button:focus {
     background-color: white;
     width: 100%;
     height: 52px;
+  }
+
+  .loadingLoad {
+    position: absolute;
+    top: 37%;
+    left: 42%;
   }
 
   .title {
@@ -95,45 +168,57 @@ button:focus {
   }
 
   .taulaPrincipal {
-    padding-top: 52px;
+    padding-top: 50px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    border-spacing: 0px;
   }
 
   .percent-th {
+    position: fixed;
     text-align: left;
     background-color: #424242;
     color: white;
-    padding: 15px;
+    padding: 9px;
+    padding-left: 20px;
     resize: none;
     font-size: 14px;
-    width: 20%;
+    margin-left: 36.9%;
+    width: 33.3%;
   }
 
   .nom-th {
+    position: fixed;
     text-align: left;
     background-color: #424242;
     color: white;
-    padding: 15px;
+    padding: 9px;
+    padding-left: 16px;
     resize: none;
     font-size: 14px;
-    width: 40%;
+    margin-left: 0%;
+    width: 33.3%;
   }
 
   .preu-th {
+    position: fixed;
     text-align: left;
     background-color: #424242;
     color: white;
-    padding: 15px;
+    padding: 9px;
+    padding-left: 16px;
+    margin-left: 61%;
     resize: none;
     font-size: 14px;
-    width: 40%;
+    width: 33.3%;
   }
 
   .taulaPrincipal td {
+    padding-top: 200px;
     font-size: 14px;
-    padding: 15px;
+    padding: 16px;
     text-align: left;
+    width: 33.3%;
   }
 
   .popupTable tr td:nth-child(even) {
@@ -153,6 +238,12 @@ button:focus {
     background-color: rgb(255, 255, 255);
     width: 100%;
     height: 75px;
+  }
+
+  .loadingLoad {
+    position: absolute;
+    top: 45%;
+    left: 46%;
   }
 
   .cercador {
@@ -178,20 +269,50 @@ button:focus {
     padding-top: 74px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    border-spacing: 0px;
   }
 
-  .taulaPrincipal th {
+  .percent-th {
+    text-align: center;
+    position: fixed;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    resize: none;
+    font-size: 14px;
+    margin-left: 33.3%;
+    width: 33.3%;
+  }
+
+  .nom-th {
+    position: fixed;
     text-align: center;
     background-color: #424242;
     color: white;
-    padding: 15px;
+    padding: 9px;
     resize: none;
-    width: 30%;
+    font-size: 14px;
+    margin-left: 0%;
+    width: 33.3%;
+  }
+
+  .preu-th {
+    position: fixed;
+    text-align: center;
+    background-color: #424242;
+    color: white;
+    padding: 9px;
+    margin-left: 66.6%;
+    resize: none;
+    font-size: 14px;
+    width: 33.3%;
   }
 
   .taulaPrincipal td {
-    padding: 15px;
+    padding: 16px;
     text-align: center;
+    border-left: 1px solid white;
+    width: 33.3%;
   }
 
   .popupTable tr td:nth-child(even) {
@@ -203,61 +324,4 @@ button:focus {
     padding-top: 10px;
     padding-left: 5px;
   }
-}
-
-/* General */
-
-/* Popup */
-.popupTable {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.popupTable tr {
-  width: 50%;
-}
-
-.closePopup {
-  float: right;
-}
-
-.popUpValue {
-  color: #999;
-}
-
-/* Taula principal */
-
-.taulaPrincipal .menorHover:hover {
-  background-color: rgb(255, 244, 244);
-}
-
-.taulaPrincipal .majorHover:hover {
-  background-color: rgb(244, 255, 244);
-}
-
-.taulaPrincipal tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.menor {
-  color: red;
-}
-
-.major {
-  color: green;
-}
-
-footer .footer-text {
-  color: white;
-  font-size: 15px;
-}
-
-footer {
-  position: fixed;
-  background-color: #424242;
-  bottom: 0;
-  width: 100%;
-  height: 25px;
-  line-height: 25px;
 }

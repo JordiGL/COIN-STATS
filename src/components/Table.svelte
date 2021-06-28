@@ -2,6 +2,7 @@
   import { coinStore } from "../store/stores";
   import Modal from "./Modal.svelte";
   import { sortOn } from "../gestor/utils";
+  import { Circle2 } from "svelte-loading-spinners";
 
   const nomColumnes = ["Nom", "Price change percent", "24h %", "Last price"];
   const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
@@ -50,6 +51,7 @@
     </tr>
   </thead>
   <tbody>
+    <td />
     {#each $coinStore as row}
       <tr
         on:click|preventDefault={changeBooleanIsOpenInModal(row)}
@@ -64,6 +66,16 @@
           {parseFloat(row[valorsColumnes[1]]).toFixed(2)}
         </td>
         <td>{row[valorsColumnes[2]]}</td>
+      </tr>
+    {:else}
+      <tr>
+        <td />
+        <div class="loading">
+          <div class="loadingLoad">
+            <Circle2 size="60" color="white" unit="px" duration="1s" />
+          </div>
+        </div>
+        <td />
       </tr>
     {/each}
     <td />
