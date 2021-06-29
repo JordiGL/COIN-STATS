@@ -271,7 +271,7 @@ footer {
   }
 
   .taulaPrincipal {
-    padding-top: 74px;
+    padding-top: 73px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
   }
@@ -323,7 +323,6 @@ footer {
   .percentatgeCella {
     text-align: center;
     padding: 16px;
-    border-left: 1px solid white;
     width: 40%;
   }
 
