@@ -46,7 +46,7 @@
     </tr>
   </thead>
   <tbody>
-    <td />
+    <td class="senar-td" />
     {#each $coinStore as row}
       <tr
         on:click|preventDefault={changeBooleanIsOpenInModal(row)}
@@ -54,13 +54,13 @@
           ? "majorHover"
           : "menorHover"}
       >
-        <td>{row[valorsColumnes[0]]}</td>
+        <td class="senar-td">{row[valorsColumnes[0]]}</td>
         <td
           class={row[valorsColumnes[1]] >= limitPercentatge ? "major" : "menor"}
         >
           {parseFloat(row[valorsColumnes[1]]).toFixed(2)}
         </td>
-        <td>{row[valorsColumnes[2]]}</td>
+        <td class="nom-td">{row[valorsColumnes[2]]}</td>
       </tr>
     {:else}
       <tr>
