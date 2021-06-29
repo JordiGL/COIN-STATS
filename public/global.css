@@ -17,7 +17,7 @@ body {
 }
 
 a {
-  color: rgb(0, 100, 200);
+  color: white;
   text-decoration: none;
 }
 
@@ -26,7 +26,7 @@ a:hover {
 }
 
 a:visited {
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 label {
@@ -123,9 +123,10 @@ footer {
   text-align: center;
   bottom: 0px;
   width: 99.9%;
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
   font-size: 15px;
+  color: white;
 }
 
 /* mobile */
@@ -139,8 +140,8 @@ footer {
 
   .loadingLoad {
     position: absolute;
-    top: 35%;
-    left: 46%;
+    top: 37%;
+    left: 42%;
   }
 
   .cercador {
@@ -149,8 +150,7 @@ footer {
 
   .title {
     float: left;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     margin-left: 7px;
     margin-top: 12px;
     font-size: 50px;
@@ -266,12 +266,6 @@ footer {
     margin-right: 7px;
   }
 
-  .taulaPrincipal {
-    padding-top: 70px;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-  }
-
   .capcalera div span {
     color: white;
     font-size: 15px;
@@ -314,6 +308,12 @@ footer {
 
   .capcalera .preu span {
     padding-left: 44.5%;
+  }
+
+  .taulaPrincipal {
+    padding-top: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
   }
 
   .nomCella,
