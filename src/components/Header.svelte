@@ -3,6 +3,7 @@
   import Fa from "svelte-fa";
   import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { coinStore, url, data } from "../store/stores";
+  import { sortOn } from "../gestor/utils";
 
   export let name;
   let response;
@@ -10,6 +11,9 @@
   let timer;
   let inputField;
   let auxStore;
+  const nomColumnes = ["Nom", "24h %", "Last price"];
+  const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
+  let ascendent = true;
 
   //Funció per a refrescar la taula mantenint l'ordre
   async function refrescar() {
@@ -48,6 +52,17 @@
       });
     }, 750);
   }
+
+  //Funció per ordenar columnes
+  function coinsSort(option) {
+    if (ascendent) {
+      coinStore.set(sortOn(Object.values($coinStore), option, ascendent));
+      ascendent = false;
+    } else {
+      coinStore.set(sortOn(Object.values($coinStore), option, ascendent));
+      ascendent = true;
+    }
+  }
 </script>
 
 <div class="container">
@@ -60,5 +75,22 @@
       on:keyup={({ target: { value } }) => cercar(value)}
       bind:value={inputField}
     />
+  </div>
+  <div class="capcalera">
+    <div class="nom" on:click={() => coinsSort(valorsColumnes[0])}>
+      <span>
+        {nomColumnes[0]}
+      </span>
+    </div>
+    <div class="percentatge" on:click={() => coinsSort(valorsColumnes[1])}>
+      <span>
+        {nomColumnes[1]}
+      </span>
+    </div>
+    <div class="preu" on:click={() => coinsSort(valorsColumnes[2])}>
+      <span>
+        {nomColumnes[2]}
+      </span>
+    </div>
   </div>
 </div>
