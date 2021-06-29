@@ -126,9 +126,10 @@ footer {
   position: fixed;
   background-color: #424242;
   text-align: center;
-  bottom: 1px;
-  width: 101%;
-  height: 25px;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
 }
 
 /* mobile */
