@@ -26,7 +26,7 @@ a:hover {
 }
 
 a:visited {
-  color: rgb(0, 80, 160);
+  color: rgb(255, 255, 255);
 }
 
 label {
@@ -117,19 +117,15 @@ button:focus {
 }
 
 /* Footer */
-footer .footer-text {
-  color: white;
-  font-size: 15px;
-}
-
 footer {
   position: fixed;
   background-color: #424242;
   text-align: center;
   bottom: 0px;
-  width: 100%;
+  width: 99.9%;
   height: 40px;
   line-height: 40px;
+  font-size: 15px;
 }
 
 /* mobile */
@@ -208,7 +204,7 @@ footer {
   }
 
   .capcalera .preu {
-    margin-left: 56%;
+    margin-left: 55.9%;
     width: 40%;
   }
 
