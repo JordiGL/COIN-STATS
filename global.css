@@ -127,7 +127,7 @@ footer {
   text-align: center;
   position: fixed;
   background-color: #424242;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
   line-height: 25px;
 }
@@ -166,7 +166,6 @@ footer {
 
   .taulaPrincipal {
     padding-top: 50px;
-    font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     text-align: center;
   }
