@@ -184,13 +184,16 @@ footer {
     resize: none;
   }
 
+  .capcalera div span {
+    float: left;
+  }
+
   .capcalera .nom {
     margin-left: 0%;
     width: 42%;
   }
 
   .capcalera .nom span {
-    float: left;
     padding-left: 37%;
   }
 
@@ -200,7 +203,6 @@ footer {
   }
 
   .capcalera .percentatge span {
-    float: left;
     padding-left: 8%;
   }
 
@@ -210,7 +212,6 @@ footer {
   }
 
   .capcalera .preu span {
-    float: left;
     padding-left: 17%;
   }
 
@@ -294,8 +295,11 @@ footer {
     width: 40%;
   }
 
-  .capcalera .nom span {
+  .capcalera div span {
     float: left;
+  }
+
+  .capcalera .nom span {
     padding-left: 46.5%;
   }
 
@@ -305,7 +309,6 @@ footer {
   }
 
   .capcalera .percentatge span {
-    float: left;
     padding-left: 42%;
   }
 
@@ -315,7 +318,6 @@ footer {
   }
 
   .capcalera .preu span {
-    float: left;
     padding-left: 44.5%;
   }
 
