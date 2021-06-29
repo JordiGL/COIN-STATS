@@ -129,6 +129,11 @@ footer {
   color: white;
 }
 
+footer div {
+  position: relative;
+  min-height: 100%;
+}
+
 /* mobile */
 @media only screen and (max-width: 600px) {
   .container {
