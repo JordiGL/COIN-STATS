@@ -154,6 +154,7 @@ footer {
   }
 
   input {
+    font-size: 17px;
     border-bottom: 1px solid #424242;
   }
 
@@ -166,7 +167,7 @@ footer {
   .cercador {
     float: right;
     width: 100px;
-    margin-top: 23px;
+    margin-top: 15px;
     margin-right: 2px;
   }
 
