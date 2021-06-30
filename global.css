@@ -167,8 +167,8 @@ footer {
   .cercador {
     float: right;
     width: 100px;
-    margin-top: 0px;
-    margin-right: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
   }
 
   .title {
