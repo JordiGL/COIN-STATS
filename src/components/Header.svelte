@@ -1,7 +1,5 @@
 <script>
   import "../../public/global.css";
-  import Fa from "svelte-fa";
-  import { faSync } from "@fortawesome/free-solid-svg-icons";
   import { coinStore, url, data } from "../store/stores";
   import { sortOn } from "../gestor/utils";
 
@@ -14,6 +12,7 @@
   const nomColumnes = ["Nom", "24h %", "Last price"];
   const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
   let ascendent = true;
+  let placeholder = "Search...";
 
   //Funció per a refrescar la taula mantenint l'ordre
   async function refrescar() {
@@ -66,12 +65,13 @@
 </script>
 
 <div class="container">
-  <div class="title">{name}</div>
-  <div class="cercar">
-    <button on:click={refrescar}><Fa icon={faSync} /></button>
+  <div>
+    <div class="title" on:click={refrescar}>{name}</div>
+  </div>
+  <div>
     <input
       class="cercador"
-      placeholder="Search..."
+      {placeholder}
       on:keyup={({ target: { value } }) => cercar(value)}
       bind:value={inputField}
     />

@@ -8,12 +8,17 @@
   let changeBooleanIsOpenInModal;
   let modalComponent;
   let moneda = [];
+  let loadingInicial = true;
 
   //Modal
   changeBooleanIsOpenInModal = function (value) {
     moneda = value;
     modalComponent.open();
   };
+
+  function checkLoadingInicial() {
+    loadingInicial = false;
+  }
 </script>
 
 <!-- Taula -->
@@ -22,6 +27,7 @@
     <td class="nomCella" />
     {#each $coinStore as row}
       <tr
+        on:load={checkLoadingInicial()}
         on:click|preventDefault={changeBooleanIsOpenInModal(row)}
         class={row[valorsColumnes[1]] >= limitPercentatge
           ? "majorHover"
@@ -36,15 +42,17 @@
         <td class="percentatgeCella">{row[valorsColumnes[2]]}</td>
       </tr>
     {:else}
-      <tr>
-        <td />
-        <div class="loading">
-          <div class="loadingLoad">
-            <Circle2 size="100" unit="px" />
+      {#if loadingInicial}
+        <tr>
+          <td />
+          <div class="loading">
+            <div class="loadingLoad">
+              <Circle2 size="100" unit="px" />
+            </div>
           </div>
-        </div>
-        <td />
-      </tr>
+          <td />
+        </tr>
+      {/if}
     {/each}
     <td />
   </tbody>
