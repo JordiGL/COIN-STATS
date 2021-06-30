@@ -165,6 +165,7 @@ footer {
     padding-top: 70px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
+    border-spacing: 0px;
   }
 
   .capcalera div span {
@@ -268,6 +269,7 @@ footer {
   .capcalera div span {
     color: white;
     font-size: 15px;
+    float: left;
   }
 
   .capcalera div {
@@ -281,10 +283,6 @@ footer {
   .capcalera .nom {
     margin-left: 0%;
     width: 40%;
-  }
-
-  .capcalera div span {
-    float: left;
   }
 
   .capcalera .nom span {
