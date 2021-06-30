@@ -167,8 +167,8 @@ footer {
   .cercador {
     float: right;
     width: 100px;
-    margin-top: 14px;
-    margin-right: 10px;
+    margin-top: 15px;
+    margin-right: 8px;
   }
 
   .title {
@@ -204,12 +204,12 @@ footer {
 
   .capcalera .percentatge {
     margin-left: 42.5%;
-    width: 9.5%;
+    width: 9%;
   }
 
   .capcalera .preu {
-    margin-left: 56.3%;
-    width: 39%;
+    margin-left: 55.5%;
+    width: 40%;
   }
 
   .nomCella,
