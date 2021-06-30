@@ -190,16 +190,12 @@ footer {
   }
 
   .capcalera .nom span {
-    padding-left: 37.5%;
+    padding-left: 37%;
   }
 
   .capcalera .percentatge {
-    margin-left: 42%;
+    margin-left: 41%;
     width: 11%;
-  }
-
-  .capcalera .percentatge span {
-    padding-left: 0px;
   }
 
   .capcalera .preu {
