@@ -9,7 +9,7 @@
   let timer;
   let inputField;
   let auxStore;
-  const nomColumnes = ["Nom", "24h %", "Last price"];
+  const nomColumnes = ["Nom", "24h%", "Last price"];
   const valorsColumnes = ["symbol", "priceChangePercent", "lastPrice"];
   let ascendent = true;
   let placeholder = "Search...";

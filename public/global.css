@@ -167,8 +167,8 @@ footer {
   .cercador {
     float: right;
     width: 100px;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-top: 15px;
+    margin-right: 8px;
   }
 
   .title {
@@ -183,7 +183,7 @@ footer {
     padding-top: 59px;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    border-spacing: 0px;
+    border-spacing: 1px;
   }
 
   .capcalera div {
@@ -191,49 +191,32 @@ footer {
     background-color: #424242;
     padding: 9px;
     margin-top: 59px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
     resize: none;
   }
 
-  .capcalera div span {
-    color: white;
-    font-size: 15px;
-  }
   .capcalera .nom {
     margin-left: 0%;
-    width: 40%;
-  }
-
-  .capcalera div span {
-    float: left;
-  }
-
-  .capcalera .nom span {
-    padding-left: 36%;
+    width: 38.3%;
   }
 
   .capcalera .percentatge {
-    margin-left: 41%;
-    width: 12%;
-  }
-
-  .capcalera .percentatge span {
-    padding-left: 0.5%;
+    margin-left: 42%;
+    width: 9%;
   }
 
   .capcalera .preu {
-    margin-left: 55.9%;
-    width: 40%;
-  }
-
-  .capcalera .preu span {
-    padding-left: 28.5%;
+    margin-left: 55%;
+    width: 40.5%;
   }
 
   .nomCella,
   .percentatgeCella {
     text-align: center;
     padding: 16px;
-    width: 40%;
+    width: 39%;
   }
 
   .menor {
@@ -285,51 +268,31 @@ footer {
     font-size: 50px;
   }
 
-  .refrescar {
-    float: right;
-    margin-top: 26px;
-    margin-right: 7px;
-  }
-
-  .capcalera div span {
-    color: white;
-    font-size: 15px;
-    float: left;
-  }
-
   .capcalera div {
+    text-align: center;
     position: fixed;
     background-color: #424242;
     padding: 9px;
     margin-top: 72px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
     resize: none;
   }
 
   .capcalera .nom {
     margin-left: 0%;
-    width: 40%;
-  }
-
-  .capcalera .nom span {
-    padding-left: 46.5%;
+    width: 39%;
   }
 
   .capcalera .percentatge {
-    margin-left: 40%;
+    margin-left: 39%;
     width: 20%;
   }
 
-  .capcalera .percentatge span {
-    padding-left: 42%;
-  }
-
   .capcalera .preu {
-    margin-left: 59.6%;
-    width: 40%;
-  }
-
-  .capcalera .preu span {
-    padding-left: 44.5%;
+    margin-left: 60%;
+    width: 39%;
   }
 
   .taulaPrincipal {
