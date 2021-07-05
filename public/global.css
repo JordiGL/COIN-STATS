@@ -199,6 +199,11 @@ footer {
     resize: none;
   }
 
+  .capcalera div span {
+    cursor: pointer;
+    user-select: none;
+  }
+
   .capcalera .nom {
     margin-left: 0%;
     width: 38.6%;
@@ -283,6 +288,11 @@ footer {
     font-size: 15px;
     text-align: center;
     resize: none;
+  }
+
+  .capcalera div span {
+    cursor: pointer;
+    user-select: none;
   }
 
   .capcalera .nom {

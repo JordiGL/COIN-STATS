@@ -77,18 +77,18 @@
     />
   </div>
   <div class="capcalera">
-    <div class="nom" on:click={() => coinsSort(valorsColumnes[0])}>
-      <span>
+    <div class="nom">
+      <span on:click={() => coinsSort(valorsColumnes[0])}>
         {nomColumnes[0]}
       </span>
     </div>
-    <div class="percentatge" on:click={() => coinsSort(valorsColumnes[1])}>
-      <span>
+    <div class="percentatge">
+      <span on:click={() => coinsSort(valorsColumnes[1])}>
         {nomColumnes[1]}
       </span>
     </div>
-    <div class="preu" on:click={() => coinsSort(valorsColumnes[2])}>
-      <span>
+    <div class="preu">
+      <span on:click={() => coinsSort(valorsColumnes[2])}>
         {nomColumnes[2]}
       </span>
     </div>
